@@ -1,6 +1,4 @@
 #include <algorithm>
-#include <functional>
-#include <iomanip>
 #include <iostream>
 #include <iterator>
 #include <map>
@@ -27,6 +25,7 @@ int main()
       symbols[symbol] = num;
     }
 
+    //Transform the string as it is said in the task directly into output stream
     std::transform(str.cbegin(), str.cend(),
                    std::ostream_iterator<std::string>(std::cout, ""),
                    [&](const char c){
