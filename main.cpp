@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
-#include <map>
 #include <string>
 
 int main()
@@ -17,25 +16,17 @@ int main()
                    str.begin(),
                    [](unsigned char c){ return std::tolower(c); });
 
-    //Count how many of each character is in the string and put it in vector
-    std::map<const char, std::size_t> symbols;
-    for (const char symbol: str)
-    {
-      const std::size_t num = std::count(str.cbegin(), str.cend(), symbol);
-      symbols[symbol] = num;
-    }
-
     //Transform the string as it is said in the task directly into output stream
     std::transform(str.cbegin(), str.cend(),
                    std::ostream_iterator<std::string>(std::cout, ""),
                    [&](const char c){
-                     if (1 < symbols[c])
+                     if (str.find(c) == str.rfind(c))
                      {
-                       return ")";
+                       return "(";
                      }
                      else
                      {
-                       return "(";
+                       return ")";
                      }
                    });
 
