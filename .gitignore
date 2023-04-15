@@ -32,8 +32,8 @@
 *.app
 
 #Unreal ignored directories
-Build/*
-Binaries/*
-DerivedDataCache/*
-Saved/*
-Intermediate/*
+*/Build/*
+*/Binaries/*
+*/DerivedDataCache/*
+*/Saved/*
+*/Intermediate/*
