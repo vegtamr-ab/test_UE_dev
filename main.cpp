@@ -14,12 +14,12 @@ int main()
     //Make all characters in the string lowercase to count the number of symbols in the string properly
     std::transform(str.cbegin(), str.cend(),
                    str.begin(),
-                   [](unsigned char c){ return std::tolower(c); });
+                   [](const auto c){ return std::tolower(c); });
 
     //Transform the string as it is said in the task directly into output stream
     std::transform(str.cbegin(), str.cend(),
                    std::ostream_iterator<std::string>(std::cout, ""),
-                   [&](const char c){
+                   [&](const auto c){
                      if (str.find(c) == str.rfind(c))
                      {
                        return "(";
